@@ -49,474 +49,515 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand ms-0 ms-md-5 ps-0 ps-md" href="#"><img
+  <!-- preloader start -->
+  <div class="preloader" id="preloader">
+    <svg class="cart" role="img" aria-label="Shopping cart line animation" viewBox="0 0 128 128" width="128px"
+      height="128px" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+        <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
+          <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
+          <circle cx="43" cy="111" r="13" />
+          <circle cx="102" cy="111" r="13" />
+        </g>
+        <g class="cart__lines" stroke="currentColor">
+          <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80"
+            stroke-dasharray="338 338" stroke-dashoffset="-338" />
+          <g class="cart__wheel1" transform="rotate(-90,43,111)">
+            <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68"
+              stroke-dashoffset="81.68" />
+          </g>
+          <g class="cart__wheel2" transform="rotate(90,102,111)">
+            <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68"
+              stroke-dashoffset="81.68" />
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <script>
+    window.onload = function () {
+      // Set a timer to hide the pre-loader after 5 seconds (5000ms)
+      setTimeout(function () {
+        // Hide the pre-loader
+        document.getElementById('preloader').style.display = 'none';
+
+        // Make the body scrollable
+        document.body.classList.add('scrollable');
+
+        // Show the content with animation
+        document.getElementById('content').classList.add('show');
+      }, 5000); // 5000ms = 5 seconds
+    };
+  </script>
+  <div class="loader-animation-content" id="content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand ms-0 ms-md-5 ps-0 ps-md" href="#"><img
+            src="https://preview.colorlib.com/theme/estore/assets/img/logo/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+          aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Category</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <button type="button" class="btn1 position-relative">
+                  Latest
+                  <span class="position-absolute top-0 start-8900 translate-middle badge rounded-pill">
+                    HOT
+                    <span class="visually-hidden">unread messages</span>
+                  </span>
+                </button>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Product List</a></li>
+                <li><a class="dropdown-item" href="#">Product Details</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Blog
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Blog</a></li>
+                <li><a class="dropdown-item" href="product Details.html">Blog Details</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Pages
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="#">Card</a></li>
+                <li><a class="dropdown-item" href="#">Element</a></li>
+                <li><a class="dropdown-item" href="#">About</a></li>
+                <li><a class="dropdown-item" href="#">Confirmation</a></li>
+                <li><a class="dropdown-item" href="CardList.html">Shopping Cart</a></li>
+                <li><a class="dropdown-item" href="#">Product Checkout</a></li>
+              </ul>
+            </li>
+            <li class="nav-item btn3">
+              <a class="nav-link" aria-current="page" href="#">Contact</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          </form>
+          <div class="input1 mb-3">
+            <i class="fa-regular fa-heart fa-fade"></i>
+            <span class="position-absolute p-2 border border-light rounded-circle">
+            </span>
+            <span class="visually-show">02</span>
+
+          </div>
+          <div class="input2 mb-3">
+            <i class="fa-solid fa-cart-shopping fa-shake"></i>
+            <span class="position-absolute p-2 border border-light rounded-circle">
+            </span>
+            <span class="visually-show span">02</span>
+
+          </div>
+
+          <button type="button" class="btn-6 btn-primary" id="liveToastBtn"><span>Sign In</span></button>
+        </div>
+    </nav>
+    <!-- Offcanvas start -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <a class="navbar-brand ms-0 ms-md-5 ps-0 ps-md-5" href="#"><img
           src="https://preview.colorlib.com/theme/estore/assets/img/logo/logo.png"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-        aria-controls="offcanvasExample" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Category</a>
+            Category
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <button type="button" class="btn1 position-relative">
-                Latest
-                <span class="position-absolute top-0 start-8900 translate-middle badge rounded-pill">
-                  HOT
-                  <span class="visually-hidden">unread messages</span>
-                </span>
-              </button>
+              Latest
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Product List</a></li>
-              <li><a class="dropdown-item" href="#">Product Details</a></li>
+              <li><a class="dropdown-item">Product List</a></li>
+              <li><a class="dropdown-item" href="product Details.html">Blog Details</a></li>
             </ul>
           </li>
+          </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               Blog
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Blog</a></li>
-              <li><a class="dropdown-item" href="product Details.html">Blog Details</a></li>
+              <li><a class="dropdown-item">Blog</a></li>
+              <li><a class="dropdown-item">Blog Details</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Pages
+              PAGES
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Login</a></li>
-              <li><a class="dropdown-item" href="#">Card</a></li>
-              <li><a class="dropdown-item" href="#">Element</a></li>
-              <li><a class="dropdown-item" href="#">About</a></li>
-              <li><a class="dropdown-item" href="#">Confirmation</a></li>
+              <li><a class="dropdown-item">Login</a></li>
+              <li><a class="dropdown-item">Card</a></li>
+              <li><a class="dropdown-item">Element</a></li>
+              <li><a class="dropdown-item">About</a></li>
+              <li><a class="dropdown-item">Confirmation</a></li>
               <li><a class="dropdown-item" href="CardList.html">Shopping Cart</a></li>
-              <li><a class="dropdown-item" href="#">Product Checkout</a></li>
+              <li><a class="dropdown-item">Product Checkout</a></li>
             </ul>
           </li>
-          <li class="nav-item btn3">
-            <a class="nav-link" aria-current="page" href="#">Contact</a>
+          </li>
+          <li class="nav-item">
+            Contact
           </li>
         </ul>
+        <hr class="dropdown-divider">
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         </form>
-        <div class="input1 mb-3">
+        <hr class="dropdown-divider">
+        <div class="input4 mb-3">
           <i class="fa-regular fa-heart fa-fade"></i>
-          <span class="position-absolute p-2 border border-light rounded-circle">
-          </span>
-          <span class="visually-show">02</span>
-
         </div>
-        <div class="input2 mb-3">
+        <div class="input3 mb-3">
           <i class="fa-solid fa-cart-shopping fa-shake"></i>
-          <span class="position-absolute p-2 border border-light rounded-circle">
-          </span>
-          <span class="visually-show span">02</span>
-
         </div>
-
-        <button type="button" class="btn-6 btn-primary" id="liveToastBtn"><span>Sign In</span></button>
-      </div>
-  </nav>
-  <!-- Offcanvas start -->
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-    <a class="navbar-brand ms-0 ms-md-5 ps-0 ps-md-5" href="#"><img
-        src="https://preview.colorlib.com/theme/estore/assets/img/logo/logo.png"></a>
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          Category
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Latest
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item">Product List</a></li>
-            <li><a class="dropdown-item" href="product Details.html">Blog Details</a></li>
-          </ul>
-        </li>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Blog
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item">Blog</a></li>
-            <li><a class="dropdown-item">Blog Details</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            PAGES
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item">Login</a></li>
-            <li><a class="dropdown-item">Card</a></li>
-            <li><a class="dropdown-item">Element</a></li>
-            <li><a class="dropdown-item">About</a></li>
-            <li><a class="dropdown-item">Confirmation</a></li>
-            <li><a class="dropdown-item" href="CardList.html">Shopping Cart</a></li>
-            <li><a class="dropdown-item">Product Checkout</a></li>
-          </ul>
-        </li>
-        </li>
-        <li class="nav-item">
-          Contact
-        </li>
-      </ul>
-      <hr class="dropdown-divider">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      </form>
-      <hr class="dropdown-divider">
-      <div class="input4 mb-3">
-        <i class="fa-regular fa-heart fa-fade"></i>
-      </div>
-      <div class="input3 mb-3">
-        <i class="fa-solid fa-cart-shopping fa-shake"></i>
-      </div>
-      <button class="btn-7">
-        <span>Sign In</span>
-      </button>
-    </div>
-  </div>
-  <!-- Offcanvas end -->
-  </header>
-  <!-- 1 Part start -->
-  <div class="container-fluid container1">
-    <p class="checkout">Card List</p>
-  </div>
-  <!-- 1 Part end -->
-
-  <!-- 2 Part start -->
-
-  <div class="container Quantity">
-    <div class="row">
-      <div class="col-12">
-        <table class="table table- ">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <img src="Gallery/arrivel_1.webp.jpeg" alt="Cap" class="Cap" width="100">
-                <span>Minimalistic shop for multipurpose use</span>
-              </td>
-              <td>$360.00</td>
-              <td>
-                <input type="number" value="1" min="1" class="form-control">
-              </td>
-              <td>$720.00</td>
-            </tr>
-            <tr>
-              <td>
-                <img src="Gallery/arrivel_2.webp.jpeg" alt="Shirt" class="Shart" width="100">
-                <span>Minimalistic shop for multipurpose use</span>
-              </td>
-              <td>$360.00</td>
-              <td>
-                <input type="number" value="1" min="1" class="form-control">
-              </td>
-              <td>$720.00</td>
-            </tr>
-          </tbody>
-        </table>
+        <button class="btn-7">
+          <span>Sign In</span>
+        </button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <button class="btn btn-primary">Update Cart</button>
-      </div>
-      <div class="col-6">
-        <button class="btn btn-secondary">Close Coupon</button>
-      </div>
+    <!-- Offcanvas end -->
+    </header>
+    <!-- 1 Part start -->
+    <div class="container-fluid container1">
+      <p class="checkout">Card List</p>
     </div>
-  </div>
+    <!-- 1 Part end -->
 
-  <!-- 2 Part end -->
+    <!-- 2 Part start -->
 
-  <!-- 3 Part start-->
-
-  <div class="container mt-4 last">
-    <div class="row">
-      <div class="col-md-8">
-        <h4 class="mb-3">Shipping</h4>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="shippingOption" id="flatRate5" value="5">
-          <label class="form-check-label" for="flatRate5">
-            Flat Rate: $5.00
-          </label>
+    <div class="container Quantity">
+      <div class="row">
+        <div class="col-12">
+          <table class="table table- ">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <img src="Gallery/arrivel_1.webp.jpeg" alt="Cap" class="Cap" width="100">
+                  <span>Minimalistic shop for multipurpose use</span>
+                </td>
+                <td>$360.00</td>
+                <td>
+                  <input type="number" value="1" min="1" class="form-control">
+                </td>
+                <td>$720.00</td>
+              </tr>
+              <tr>
+                <td>
+                  <img src="Gallery/arrivel_2.webp.jpeg" alt="Shirt" class="Shart" width="100">
+                  <span>Minimalistic shop for multipurpose use</span>
+                </td>
+                <td>$360.00</td>
+                <td>
+                  <input type="number" value="1" min="1" class="form-control">
+                </td>
+                <td>$720.00</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="shippingOption" id="freeShipping" value="0" checked>
-          <label class="form-check-label" for="freeShipping">
-            Free Shipping
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="shippingOption" id="flatRate10" value="10">
-          <label class="form-check-label" for="flatRate10">
-            Flat Rate: $10.00
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="shippingOption" id="localDelivery" value="2">
-          <label class="form-check-label" for="localDelivery">
-            Local Delivery: $2.00
-          </label>
-        </div>
-
-        <div class="form-group mt-3">
-          <label for="country">Country</label>
-          <select class="form-control" id="country">
-            <option value="India">India</option>
-          </select>
-        </div>
-
-        <div class="form-group mt-3">
-          <label for="state">State</label>
-          <select class="form-control" id="state">
-            <option value="Gujarat">Gujarat</option>
-            <option value="MP">MP</option>
-            <option value="UP">UP</option>
-          </select>
-        </div>
-
-        <div class="form-group mt-3">
-          <label for="zipcode">Postcode/Zipcode</label>
-          <input type="text" class="form-control" id="zipcode">
-        </div>
-
-        <button type="button" class="btn btn-primary mt-3">Update Details</button>
       </div>
-
-      <div class="col-md-4">
-        <h4>Order Summary</h4>
-        <table class="table">
-          <tbody>
-            <tr>
-              <td>Subtotal</td>
-              <td>$2160.00</td>
-            </tr>
-            <tr>
-              <td>Shipping</td>
-              <td id="shippingCost"></td>
-            </tr>
-            <tr>
-              <td><strong>Total</strong></td>
-              <td id="totalCost"></td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div class="d-flex justify-content-between mt-3">
-          <button type="button" class="btn btn-secondary">Continue Shopping</button>
-          <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-primary">Update Cart</button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-secondary">Close Coupon</button>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // JavaScript to calculate shipping cost and total
-    const shippingOptions = document.querySelectorAll('input[name="shippingOption"]');
-    const shippingCostElement = document.getElementById('shippingCost');
-    const totalCostElement = document.getElementById('totalCost');
-    const subtotal = 2160.00;
+    <!-- 2 Part end -->
 
-    shippingOptions.forEach(option => {
-      option.addEventListener('change', () => {
-        const shippingCost = parseFloat(option.value);
-        const totalCost = subtotal + shippingCost;
+    <!-- 3 Part start-->
 
-        shippingCostElement.textContent = `$${shippingCost.toFixed(2)}`;
-        totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+    <div class="container mt-4 last">
+      <div class="row">
+        <div class="col-md-8">
+          <h4 class="mb-3">Shipping</h4>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="shippingOption" id="flatRate5" value="5">
+            <label class="form-check-label" for="flatRate5">
+              Flat Rate: $5.00
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="shippingOption" id="freeShipping" value="0" checked>
+            <label class="form-check-label" for="freeShipping">
+              Free Shipping
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="shippingOption" id="flatRate10" value="10">
+            <label class="form-check-label" for="flatRate10">
+              Flat Rate: $10.00
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="shippingOption" id="localDelivery" value="2">
+            <label class="form-check-label" for="localDelivery">
+              Local Delivery: $2.00
+            </label>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="country">Country</label>
+            <select class="form-control" id="country">
+              <option value="India">India</option>
+            </select>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="state">State</label>
+            <select class="form-control" id="state">
+              <option value="Gujarat">Gujarat</option>
+              <option value="MP">MP</option>
+              <option value="UP">UP</option>
+            </select>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="zipcode">Postcode/Zipcode</label>
+            <input type="text" class="form-control" id="zipcode">
+          </div>
+
+          <button type="button" class="btn btn-primary mt-3">Update Details</button>
+        </div>
+
+        <div class="col-md-4">
+          <h4>Order Summary</h4>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Subtotal</td>
+                <td>$2160.00</td>
+              </tr>
+              <tr>
+                <td>Shipping</td>
+                <td id="shippingCost"></td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td id="totalCost"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="d-flex justify-content-between mt-3">
+            <button type="button" class="btn btn-secondary">Continue Shopping</button>
+            <button type="button" class="btn btn-primary">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // JavaScript to calculate shipping cost and total
+      const shippingOptions = document.querySelectorAll('input[name="shippingOption"]');
+      const shippingCostElement = document.getElementById('shippingCost');
+      const totalCostElement = document.getElementById('totalCost');
+      const subtotal = 2160.00;
+
+      shippingOptions.forEach(option => {
+        option.addEventListener('change', () => {
+          const shippingCost = parseFloat(option.value);
+          const totalCost = subtotal + shippingCost;
+
+          shippingCostElement.textContent = `$${shippingCost.toFixed(2)}`;
+          totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+        });
       });
-    });
 
-    // Add more JavaScript for country/state selection and dynamic updates as needed
-  </script>
+      // Add more JavaScript for country/state selection and dynamic updates as needed
+    </script>
 
-  <!-- 3 Part end -->
+    <!-- 3 Part end -->
 
 
-  <!-- Footer -->
-  <footer class="text-center text-lg-start bg-body-tertiary text-muted">
-    <!-- Section: Social media -->
-    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-      <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>Get connected with us on social networks:</span>
-      </div>
-      <!-- Left -->
-
-      <!-- Right -->
-      <div>
-        <a href="https://www.facebook.com/share/18xtoZNAox/" class="me-4 text-reset">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://imagineinkjet.com/" class="me-4 text-reset">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/ayush-anand-9a07b0312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-          class="me-4 text-reset">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-      <!-- Right -->
-    </section>
-    <!-- Section: Social media -->
-
-    <!-- Section: Links  -->
-    <section class="">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              <img src="Gallery/logo.webp" alt="">
-            </h6>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Quick Link
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">About</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Offers & Discounts</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Get Coupon</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Contact Us</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              New Products
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">Woman Cloth</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Fashion Accessories</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Man Accessories</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Rubber made Toys</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Support
-            </h6>
-            <p>
-              <a href="#!" class="text-reset">Frequently Asked Questions</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Terms & Conditions</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Privacy Policy</a>
-            </p>
-            <p>
-              <a href="#!" class="text-reset">Report a Payment Issue</a>
-            </p>
-          </div>
-          <!-- Grid column -->
-
-          <!-- Grid column -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> Vastral, Ahmedabad</p>
-            <p>
-              <i class="fas fa-envelope me-3"></i>
-              support@imagineinkjet.com
-            </p>
-            <p><i class="fas fa-phone me-3"></i> +91 9087598525</p>
-            <p><i class="fas fa-phone me-3"></i> +91 7845896521</p>
-          </div>
-          <!-- Grid column -->
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+      <!-- Section: Social media -->
+      <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+        <!-- Left -->
+        <div class="me-5 d-none d-lg-block">
+          <span>Get connected with us on social networks:</span>
         </div>
-        <!-- Grid row -->
+        <!-- Left -->
+
+        <!-- Right -->
+        <div>
+          <a href="https://www.facebook.com/share/18xtoZNAox/" class="me-4 text-reset">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://imagineinkjet.com/" class="me-4 text-reset">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ayush-anand-9a07b0312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            class="me-4 text-reset">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="" class="me-4 text-reset">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+        <!-- Right -->
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Links  -->
+      <section class="">
+        <div class="container text-center text-md-start mt-5">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+              <!-- Content -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                <img src="Gallery/logo.webp" alt="">
+              </h6>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore.
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Quick Link
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">About</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Offers & Discounts</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Get Coupon</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Contact Us</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                New Products
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Woman Cloth</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Fashion Accessories</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Man Accessories</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Rubber made Toys</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">
+                Support
+              </h6>
+              <p>
+                <a href="#!" class="text-reset">Frequently Asked Questions</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Terms & Conditions</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Privacy Policy</a>
+              </p>
+              <p>
+                <a href="#!" class="text-reset">Report a Payment Issue</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <!-- Links -->
+              <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+              <p><i class="fas fa-home me-3"></i> Vastral, Ahmedabad</p>
+              <p>
+                <i class="fas fa-envelope me-3"></i>
+                support@imagineinkjet.com
+              </p>
+              <p><i class="fas fa-phone me-3"></i> +91 9087598525</p>
+              <p><i class="fas fa-phone me-3"></i> +91 7845896521</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+
+      <!-- Copyright -->
+      <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2024 Copyright:
+        <a class="text-reset fw-bold" href="https://imagineinkjet.com/">Ayush Anand</a>
       </div>
-    </section>
-    <!-- Section: Links  -->
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 
-    <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-      © 2024 Copyright:
-      <a class="text-reset fw-bold" href="https://imagineinkjet.com/">Ayush Anand</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!-- Footer -->
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </div>
 </body>
 
 </html>
